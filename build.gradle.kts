@@ -1,7 +1,7 @@
 println("До плагинов")
 plugins{
     println("В плагинах")
-    java
+    println(com.google.gson.Gson().toJson(java))
 }
 
 println("После плагинов")
