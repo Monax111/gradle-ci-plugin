@@ -1,16 +1,20 @@
-tasks.forEach {
-    println(it)
+tasks {
+    register("tim") {
+        println("Настройка таски $name")
+
+        actions.add(Action {
+            println("Действие таски $name")
+        })
+
+        doFirst {
+
+            println("Перед действий таски $name")
+
+        }
+        doLast {
+            println("После действий таски $name")
+        }
+    }
 }
 
-afterEvaluate {
-    println("after")
-}
-
-extensions.extensionsSchema.forEach {
-    println(it.name)
-}
-
-version = 23
-group = "ru.tim"
-
-logger.error("Logger")
+println("Настраиваем билд")
