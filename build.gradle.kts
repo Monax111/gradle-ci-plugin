@@ -1,13 +1,16 @@
-this::class.java.declaredMethods.forEach {
+tasks.forEach {
     println(it)
 }
 
-println(this::class.java.superclass)
-
-project.apply{
-
-    tasks.forEach {
-        println(it)
-    }
-
+afterEvaluate {
+    println("after")
 }
+
+extensions.extensionsSchema.forEach {
+    println(it.name)
+}
+
+version = 23
+group = "ru.tim"
+
+logger.error("Logger")
