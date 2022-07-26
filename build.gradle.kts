@@ -1,11 +1,8 @@
 tasks {
-    val tim = register("tim") {
+
+    val tim = register<MyTask>("tim") {
         group = "demo"
         println("Настройка таски $name")
-
-        actions.add(Action {
-            println("Действие таски $name")
-        })
 
         doFirst {
 
@@ -17,16 +14,23 @@ tasks {
         }
     }
 
-    register("foo") {
+    register<MyTask>("foo") {
         group = "demo"
-        actions.add(Action {
-            println("Действие таски $name")
-        })
         dependsOn(tim)
         mustRunAfter(tim)
         shouldRunAfter(tim)
         //finalizedBy(tim)
     }
+
+
 }
 
 println("Настраиваем билд")
+
+open class MyTask : DefaultTask() {
+
+    @TaskAction
+    fun doIt(){
+        println("Действие таски $name")
+    }
+}
