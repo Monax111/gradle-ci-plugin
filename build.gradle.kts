@@ -1,4 +1,16 @@
+println("До плагинов")
+plugins{
+    println("В плагинах")
+    java
+}
+
+println("После плагинов")
+
 tasks {
+
+    compileJava{
+
+    }
 
     val tim = register<MyTask>("tim") {
         group = "demo"
