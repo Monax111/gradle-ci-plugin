@@ -1,4 +1,4 @@
-package ru.tim.demo.ci.gradle
+package ru.tim.demo.ci.gradle.task
 
 import java.io.File
 import java.nio.file.Files
